@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ramoji Rao Makala · Data Analyst</title>
+<meta name="description" content="Ramoji Rao Makala — Data Analyst & MS candidate in AI & Business Analytics at the University of South Florida. Power BI, SQL, cloud data, and machine learning." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0d0d10;
+    --bg-soft:#15151b;
+    --card:#17171f;
+    --line:rgba(255,255,255,.08);
+    --text:#f3f3f5;
+    --muted:#9a9aa6;
+    --accent:#ff5a5f;   /* red  */
+    --accent2:#8b5cf6;  /* purple */
+    --accent3:#3b82f6;  /* blue */
+    --accent4:#2dd4bf;  /* teal */
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  h1,h2,h3,.display{font-family:'Space Grotesk','Inter',sans-serif}
+  section{padding:96px 0;position:relative}
+  .eyebrow{
+    text-transform:uppercase;letter-spacing:.22em;font-size:12px;
+    color:var(--accent4);font-weight:600;margin-bottom:14px;display:block;
+  }
+  .section-title{font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+  .section-sub{color:var(--muted);max-width:620px;margin-bottom:48px}
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    backdrop-filter:blur(12px);
+    background:rgba(13,13,16,.6);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s,background .3s;
+  }
+  header.scrolled{border-bottom-color:var(--line);background:rgba(13,13,16,.85)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{font-family:'Space Grotesk';font-weight:700;font-size:18px;letter-spacing:-.01em}
+  .brand span{color:var(--accent)}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{color:var(--muted);font-size:14px;font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-social{display:flex;gap:14px;align-items:center}
+  .nav-social a{color:var(--muted);transition:color .2s,transform .2s;display:flex}
+  .nav-social a:hover{color:var(--text);transform:translateY(-2px)}
+  .menu-btn{display:none;background:none;border:0;color:var(--text);cursor:pointer}
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100vh;display:flex;align-items:center;
+    padding-top:72px;position:relative;overflow:hidden;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;width:100%}
+  .hi{color:var(--muted);font-size:20px;font-weight:500;margin-bottom:6px}
+  .hi b{color:var(--text)}
+  .hero h1{
+    font-size:clamp(42px,7.5vw,86px);line-height:.98;font-weight:700;
+    letter-spacing:-.02em;margin:6px 0 22px;
+  }
+  .hero h1 .grad{
+    background:linear-gradient(100deg,var(--accent),var(--accent2) 45%,var(--accent3));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{color:var(--muted);font-size:17px;max-width:520px;margin-bottom:34px}
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:999px;
+    font-weight:600;font-size:14.5px;cursor:pointer;border:1px solid transparent;transition:.2s;
+  }
+  .btn-primary{background:var(--text);color:#0d0d10}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,255,255,.12)}
+  .btn-ghost{border-color:var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent4);color:var(--accent4)}
+
+  /* avatar + floating capsules */
+  .hero-art{position:relative;display:flex;justify-content:center;align-items:center;min-height:420px}
+  .avatar{
+    width:330px;height:330px;border-radius:50%;position:relative;
+    background:
+      radial-gradient(120% 120% at 30% 20%, #2a2a36 0%, #131319 70%);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 40px 90px rgba(0,0,0,.55);
+  }
+  .avatar .initials{
+    font-family:'Space Grotesk';font-weight:700;font-size:120px;letter-spacing:-.03em;
+    background:linear-gradient(135deg,#fff,#9a9aa6);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .avatar .ring{
+    position:absolute;inset:-14px;border-radius:50%;
+    border:1px dashed rgba(255,255,255,.12);animation:spin 40s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .capsule{position:absolute;border-radius:999px;filter:drop-shadow(0 10px 22px rgba(0,0,0,.45));animation:float 6s ease-in-out infinite}
+  .cap1{width:54px;height:120px;background:linear-gradient(160deg,var(--accent),#b3262a);top:8%;right:10%;transform:rotate(35deg);animation-delay:0s}
+  .cap2{width:46px;height:104px;background:linear-gradient(160deg,var(--accent2),#5b32b0);bottom:6%;left:6%;transform:rotate(-25deg);animation-delay:1.2s}
+  .cap3{width:40px;height:40px;border-radius:50%;background:linear-gradient(160deg,var(--accent3),#1e5bbf);top:18%;left:2%;animation-delay:.6s}
+  .cap4{width:38px;height:38px;border-radius:50%;background:linear-gradient(160deg,var(--accent4),#147f72);bottom:18%;right:4%;animation-delay:1.8s}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0))}50%{transform:translateY(-16px) rotate(var(--r,0))}}
+  .cap1{--r:35deg}.cap2{--r:-25deg}
+  .blob{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(90px);opacity:.22;z-index:-1}
+  .blob1{background:var(--accent2);top:-10%;right:-6%}
+  .blob2{background:var(--accent3);bottom:-12%;left:-8%}
+
+  /* ---------- about / stats ---------- */
+  .about-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:56px;align-items:start}
+  .about-grid p{color:var(--muted);font-size:16.5px;margin-bottom:18px}
+  .about-grid p b{color:var(--text);font-weight:600}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .stat .num{font-family:'Space Grotesk';font-size:30px;font-weight:700;
+    background:linear-gradient(120deg,var(--accent4),var(--accent3));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .lbl{color:var(--muted);font-size:13.5px;margin-top:4px}
+
+  /* ---------- timeline ---------- */
+  .timeline{position:relative;border-left:2px solid var(--line);margin-left:8px;padding-left:34px;display:flex;flex-direction:column;gap:40px}
+  .tl-item{position:relative}
+  .tl-item::before{content:"";position:absolute;left:-43px;top:4px;width:14px;height:14px;border-radius:50%;
+    background:var(--bg);border:3px solid var(--accent)}
+  .tl-item:nth-child(2)::before{border-color:var(--accent2)}
+  .tl-item:nth-child(3)::before{border-color:var(--accent3)}
+  .tl-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;align-items:baseline}
+  .tl-role{font-family:'Space Grotesk';font-weight:600;font-size:19px}
+  .tl-org{color:var(--accent4);font-weight:500}
+  .tl-date{color:var(--muted);font-size:13.5px;white-space:nowrap}
+  .tl-item ul{margin:12px 0 0 18px;color:var(--muted);font-size:15px}
+  .tl-item li{margin-bottom:6px}
+
+  /* ---------- projects ---------- */
+  .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+  .proj{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;
+    transition:.25s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+  .proj::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3),var(--accent4));
+    opacity:0;transition:.25s}
+  .proj:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.16)}
+  .proj:hover::after{opacity:1}
+  .proj-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px}
+  .proj h3{font-size:20px;font-weight:600;letter-spacing:-.01em}
+  .proj .yr{color:var(--muted);font-size:12.5px;white-space:nowrap;padding-top:3px}
+  .proj p{color:var(--muted);font-size:15px;margin-bottom:18px;flex:1}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .tag{font-size:12px;color:var(--text);background:rgba(255,255,255,.06);border:1px solid var(--line);
+    border-radius:999px;padding:5px 12px}
+  .proj-link{font-size:14px;font-weight:600;color:var(--accent4);display:inline-flex;align-items:center;gap:6px}
+  .proj-link svg{transition:transform .2s}
+  .proj:hover .proj-link svg{transform:translate(3px,-3px)}
+
+  /* ---------- skills ---------- */
+  .skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+  .skill-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+  .skill-card h3{font-size:16px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .skill-card h3 .dot{width:9px;height:9px;border-radius:50%}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{font-size:13px;background:rgba(255,255,255,.05);border:1px solid var(--line);
+    border-radius:8px;padding:7px 12px;color:var(--text)}
+
+  /* ---------- education + certs ---------- */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .edu-item{padding-bottom:24px;margin-bottom:24px;border-bottom:1px solid var(--line)}
+  .edu-item:last-child{border:0;margin:0;padding:0}
+  .edu-item .deg{font-family:'Space Grotesk';font-weight:600;font-size:18px}
+  .edu-item .sch{color:var(--accent4);font-size:15px;margin-top:2px}
+  .edu-item .meta{color:var(--muted);font-size:13.5px;margin-top:4px}
+  .cert-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .cert-list li{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:15px}
+  .cert-list li b{color:var(--text);font-weight:600}
+  .cert-list .ck{color:var(--accent4);flex-shrink:0;margin-top:3px}
+
+  /* ---------- contact ---------- */
+  .contact{text-align:center}
+  .contact h2{font-size:clamp(30px,5vw,52px);font-weight:700;letter-spacing:-.02em;margin-bottom:16px}
+  .contact h2 .grad{background:linear-gradient(100deg,var(--accent),var(--accent2),var(--accent3));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .contact p{color:var(--muted);max-width:520px;margin:0 auto 34px}
+  .contact-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .clink{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:12px;
+    border:1px solid var(--line);background:var(--card);font-weight:500;font-size:14.5px;transition:.2s}
+  .clink:hover{transform:translateY(-3px);border-color:var(--accent4);color:var(--accent4)}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--muted);font-size:13.5px}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:900px){
+    .hero-grid,.about-grid,.two-col{grid-template-columns:1fr}
+    .hero-art{order:-1;min-height:340px}
+    .avatar{width:240px;height:240px}.avatar .initials{font-size:90px}
+    .nav-links{display:none}
+    .menu-btn{display:flex}
+    .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;
+      background:var(--bg-soft);padding:22px 28px;gap:18px;border-bottom:1px solid var(--line)}
+    .nav-links.open .nav-social{margin-top:6px}
+  }
+  @media(max-width:560px){
+    section{padding:70px 0}
+    .stats{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#home" class="brand">Ramoji<span>.</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <span class="nav-social">
+        <a href="https://github.com/ramojiraomakala" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/ramoji-rao-makala" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33 0-3.04-1.85-3.04s-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </span>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hi">Hi, I'm <b>Ramoji Rao Makala</b> 👋</p>
+      <h1>I'M A <span class="grad">DATA<br/>ANALYST</span></h1>
+      <p class="lead">
+        MS candidate in AI &amp; Business Analytics at the University of South Florida.
+        I turn messy, large-scale data into clear decisions — Power BI dashboards,
+        optimized SQL pipelines, and machine learning from adversarial RL to
+        market-sentiment systems.
+      </p>
+      <div class="cta-row">
+        <a href="#projects" class="btn btn-primary">
+          View My Projects
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="Ramoji_Rao_Makala_Resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">
+          Download Résumé
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="avatar">
+        <div class="ring"></div>
+        <!-- Swap this for a real photo: replace the .initials div with
+             <img src="me.jpg" style="width:100%;height:100%;border-radius:50%;object-fit:cover"> -->
+        <span class="initials">RM</span>
+      </div>
+      <span class="capsule cap1"></span>
+      <span class="capsule cap2"></span>
+      <span class="capsule cap3"></span>
+      <span class="capsule cap4"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <span class="eyebrow reveal">About</span>
+    <h2 class="section-title reveal">Data, decisions, and a bit of ML.</h2>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>
+          I'm a <b>data analyst</b> with three-plus years of experience across utilities,
+          audit, and academic research — currently completing an <b>MS in AI &amp; Business
+          Analytics</b> at the University of South Florida (May 2026).
+        </p>
+        <p>
+          My day-to-day is reconciling large transactional datasets, optimizing
+          <b>Oracle &amp; BigQuery SQL</b>, and shipping <b>Power BI</b> dashboards that
+          leadership actually uses. I care about reproducibility — clean pipelines,
+          documented transformations, and data you can trust before it reaches a decision.
+        </p>
+        <p>
+          Outside of analytics, I build machine-learning research projects: <b>differentially
+          private</b> and <b>federated</b> fine-tuning of large language models, adversarial
+          malware generation with reinforcement learning, and a live multi-market sentiment
+          trading engine. I'm certified across <b>Microsoft</b> and <b>Google Cloud</b>.
+        </p>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><div class="num">3+ yrs</div><div class="lbl">in data analytics</div></div>
+        <div class="stat"><div class="num">1,100+</div><div class="lbl">legacy reports analyzed</div></div>
+        <div class="stat"><div class="num">3</div><div class="lbl">cloud / data certifications</div></div>
+        <div class="stat"><div class="num">2026</div><div class="lbl">MS AI &amp; Business Analytics</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <span class="eyebrow reveal">Experience</span>
+    <h2 class="section-title reveal">Where I've worked.</h2>
+    <p class="section-sub reveal">Utilities, higher-ed research, and Big-4 audit analytics.</p>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-top">
+          <div><span class="tl-role">Data Analyst Intern</span> · <span class="tl-org">Orlando Utilities Commission (OUC)</span></div>
+          <span class="tl-date">May 2025 – Present · Orlando, FL</span>
+        </div>
+        <ul>
+          <li>Led the "BAC Internal Control Project," consolidating and analyzing 1,100+ legacy Cognos reports to surface key Billing &amp; Collections metrics.</li>
+          <li>Built and deployed interactive Power BI dashboards to the Power BI Service with scheduled refreshes and managed workspace access for leadership.</li>
+          <li>Optimized complex Oracle SQL queries for daily ad-hoc reporting, tracking billing anomalies and unprocessed adjustments for financial compliance.</li>
+          <li>Partnered with Billing QA to validate rate applications and ensure data integrity before customer invoicing.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-top">
+          <div><span class="tl-role">Student Assistant</span> · <span class="tl-org">University of South Florida</span></div>
+          <span class="tl-date">Dec 2024 – May 2025 · Tampa, FL</span>
+        </div>
+        <ul>
+          <li>Extracted and cleaned semi-structured datasets from BigQuery and SQL databases to support faculty research analytics.</li>
+          <li>Created summary tables and Power BI / Tableau visualizations to communicate academic trends to non-technical stakeholders.</li>
+          <li>Authored data dictionaries and transformation notes ensuring 100% reproducibility of analyses.</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-top">
+          <div><span class="tl-role">Data Analyst</span> · <span class="tl-org">PwC India</span></div>
+          <span class="tl-date">Mar 2022 – Jul 2024 · Hyderabad, India</span>
+        </div>
+        <ul>
+          <li>Validated and reconciled large-scale transactional datasets using SQL and Excel for high-value audit engagements.</li>
+          <li>Built automated Power BI reporting dashboards, significantly cutting weekly reporting turnaround for client teams.</li>
+          <li>Communicated data-quality issues to cross-functional stakeholders, measurably reducing audit exceptions.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects">
+  <div class="wrap">
+    <span class="eyebrow reveal">Projects</span>
+    <h2 class="section-title reveal">Things I've built.</h2>
+    <p class="section-sub reveal">Research and engineering side projects in ML and data.</p>
+    <div class="proj-grid">
+
+      <div class="proj reveal">
+        <div class="proj-head">
+          <h3>DP Fine-Tuning of LLMs (LLM_Tune)</h3>
+          <span class="yr">2025</span>
+        </div>
+        <p>A framework for fine-tuning large pre-trained models (DeBERTa-v3-large, ViT-base,
+           Qwen2.5-0.5B) under formal <b>differential privacy</b>. My Low-Rank Reparametrization
+           (LRK) decomposes each weight matrix into rank-1 carriers and noises only those under
+           DP-SGD — shrinking the noised parameter count ~500× and holding accuracy within 2–4% of
+           non-private baselines (88% SST-2, 97% CIFAR-10, 90% medical) across 8 datasets.</p>
+        <div class="tags">
+          <span class="tag">PyTorch</span><span class="tag">Differential Privacy</span>
+          <span class="tag">DP-SGD</span><span class="tag">PRV Accountant</span><span class="tag">NLP + Vision</span>
+        </div>
+        <a class="proj-link" href="https://github.com/ramojiraomakala" target="_blank" rel="noopener">
+          View on GitHub
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-head">
+          <h3>Federated Fine-Tuning of LLMs with DP</h3>
+          <span class="yr">2025</span>
+        </div>
+        <p>A research framework that fine-tunes Qwen 2.5, Llama 3.2, Phi-3 and BERT across
+           simulated clients with the <b>Flower</b> framework on GLUE / SuperGLUE. Only LoRA's
+           ~0.1% trainable params are exchanged per round — ~1000× less bandwidth and a tractable
+           DP budget. A full client × round sweep on Qwen-0.5B showed LoRA matching or beating full
+           fine-tuning by ~4 pts on QNLI/MNLI. Built for HPC reality: SLURM checkpoint/resume,
+           per-job isolation, and Ray-actor caches. Phase 1 toward a multi-mechanism DP study.</p>
+        <div class="tags">
+          <span class="tag">PyTorch</span><span class="tag">Flower</span>
+          <span class="tag">LoRA / PEFT</span><span class="tag">Federated Learning</span>
+          <span class="tag">Ray</span><span class="tag">SLURM</span>
+        </div>
+        <a class="proj-link" href="https://github.com/ramojiraomakala" target="_blank" rel="noopener">
+          View on GitHub
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-head">
+          <h3>Sentiment Trading System</h3>
+          <span class="yr">2025</span>
+        </div>
+        <p>A live, market-switchable (US ⇄ India / NSE) intraday sentiment trading engine.
+           Ingests financial news via RSS, scores it with FinBERT, blends sentiment with an
+           hourly-volatility prior to predict next-hour impact, and runs a paper-trading engine
+           with code-enforced risk rules (stop-loss, take-profit, daily kill-switch, square-off).</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">FinBERT / NLP</span>
+          <span class="tag">pandas</span><span class="tag">yfinance</span><span class="tag">Backtesting</span>
+        </div>
+        <a class="proj-link" href="https://github.com/ramojiraomakala" target="_blank" rel="noopener">
+          View on GitHub
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-head">
+          <h3>Adversarial Malware Generation using RL</h3>
+          <span class="yr">2025 – Present</span>
+        </div>
+        <p>Independent research generating adversarial malware variants with reinforcement-learning
+           agents. Built a custom environment that mutates code structures while preserving
+           functionality, evaluated against industry malware classifiers.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">PyTorch</span>
+          <span class="tag">Reinforcement Learning</span><span class="tag">Security ML</span>
+        </div>
+        <a class="proj-link" href="https://github.com/ramojiraomakala" target="_blank" rel="noopener">
+          View on GitHub
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+      </div>
+
+      <div class="proj reveal">
+        <div class="proj-head">
+          <h3>Enterprise Data Warehouse Design</h3>
+          <span class="yr">2025</span>
+        </div>
+        <p>Designed a Kimball-style star schema for a retail dataset with fact and dimension tables
+           for OLAP analysis. Implemented Slowly Changing Dimensions (SCD Type 2) to track historical
+           changes and ensure accurate reporting.</p>
+        <div class="tags">
+          <span class="tag">SQL</span><span class="tag">Snowflake</span>
+          <span class="tag">Dimensional Modeling</span><span class="tag">OLAP</span>
+        </div>
+        <a class="proj-link" href="https://github.com/ramojiraomakala" target="_blank" rel="noopener">
+          View on GitHub
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <span class="eyebrow reveal">Skills</span>
+    <h2 class="section-title reveal">Tools of the trade.</h2>
+    <div class="skill-grid">
+      <div class="skill-card reveal">
+        <h3><span class="dot" style="background:var(--accent)"></span>Languages</h3>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span>
+          <span class="chip">scikit-learn</span><span class="chip">SQL</span><span class="chip">R</span><span class="chip">DAX</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="dot" style="background:var(--accent3)"></span>Cloud &amp; Databases</h3>
+        <div class="chips">
+          <span class="chip">AWS</span><span class="chip">Google Cloud (BigQuery)</span>
+          <span class="chip">Snowflake</span><span class="chip">Oracle SQL</span><span class="chip">Postgres</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="dot" style="background:var(--accent4)"></span>Visualization &amp; Tools</h3>
+        <div class="chips">
+          <span class="chip">Power BI</span><span class="chip">Tableau</span>
+          <span class="chip">Advanced Excel</span><span class="chip">Power Query</span><span class="chip">Git</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION + CERTS ============ -->
+<section id="education">
+  <div class="wrap">
+    <div class="two-col">
+      <div>
+        <span class="eyebrow reveal">Education</span>
+        <h2 class="section-title reveal" style="margin-bottom:34px">Education</h2>
+        <div class="reveal">
+          <div class="edu-item">
+            <div class="deg">M.S. in AI &amp; Business Analytics</div>
+            <div class="sch">University of South Florida — Tampa, FL</div>
+            <div class="meta">Expected May 2026 · ML, Data Visualization, Advanced Database Management, Cloud Architectures</div>
+          </div>
+          <div class="edu-item">
+            <div class="deg">B.Tech in Computer Science &amp; Engineering</div>
+            <div class="sch">GITAM University — Visakhapatnam, India</div>
+            <div class="meta">May 2022</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow reveal">Certifications</span>
+        <h2 class="section-title reveal" style="margin-bottom:34px">Certifications</h2>
+        <ul class="cert-list reveal">
+          <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span><b>Microsoft Certified: Power BI Data Analyst Associate</b></span></li>
+          <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span><b>Microsoft Certified: DP-700</b> — Fabric Data Engineer</span></li>
+          <li><svg class="ck" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg><span><b>Google Cloud Professional Data Engineer</b></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact" style="background:var(--bg-soft)">
+  <div class="wrap">
+    <span class="eyebrow reveal">Contact</span>
+    <h2 class="reveal">Let's <span class="grad">work together</span>.</h2>
+    <p class="reveal">Open to data analyst &amp; data science roles. The fastest way to reach me is email or LinkedIn.</p>
+    <div class="contact-links reveal">
+      <a class="clink" href="mailto:ramojimakala1999@gmail.com">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        ramojimakala1999@gmail.com
+      </a>
+      <a class="clink" href="https://linkedin.com/in/ramoji-rao-makala" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33 0-3.04-1.85-3.04s-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+        LinkedIn
+      </a>
+      <a class="clink" href="https://github.com/ramojiraomakala" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        GitHub
+      </a>
+      <a class="clink" href="tel:+18135604751">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.4-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg>
+        813-560-4751
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="yr"></span> Ramoji Rao Makala · Built as a static site, hosted on GitHub Pages.
+</footer>
+
+<script>
+  // sticky header shadow
+  const hdr = document.getElementById('hdr');
+  addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 12));
+
+  // mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // footer year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
